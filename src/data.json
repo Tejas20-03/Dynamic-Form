@@ -1,0 +1,392 @@
+{
+	"formTitle": "Invoice",
+	"formFields": [
+		[
+			{
+				"type": "ListOfValues",
+				"id": "rNesipZAOd",
+				"name": "client",
+				"label": "Client",
+				"placeHolder": "Select Client",
+				"multiple": false,
+				"isClearable": true,
+				"isSearchable": true,
+				"isCreatable": false,
+				"notObjectValue": false,
+				"builderIsListOfValue": true,
+				"builderCreateSelectWith": {
+					"label": "Collection",
+					"value": "Collection"
+				},
+				"builderCollectionMappingLabelOrValue": "label",
+				"collection": "client",
+				"filters": {},
+				"select": {
+					"code": 1,
+					"company": 1
+				},
+				"optionMapping": {
+					"label": "company",
+					"value": "_id",
+					"objectName": ""
+				},
+				"valueUsed": [],
+				"options": [
+					{
+						"label": "",
+						"value": ""
+					}
+				],
+				"width": 25,
+				"isDisabled": false,
+				"isHide": false,
+				"buttonSchema": [
+					{
+						"type": "EventButton",
+						"btnType": "Dialog",
+						"schemaType": "FormBuilder",
+						"configName": "client-form",
+						"btnText": "",
+						"iconName": "HiPlus",
+						"queryString": "",
+						"isPlainButton": false
+					}
+				],
+				"autoFillValueMapping": [],
+				"validation": {
+					"required": true
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "DatePicker",
+				"id": "5fsg9DSyFX",
+				"name": "dueDate",
+				"label": "Due Date",
+				"initialValues": "",
+				"width": 25,
+				"isDisabled": false,
+				"isHide": false,
+				"validation": {
+					"required": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "Input",
+				"id": "X4wxgnaPtd",
+				"name": "title",
+				"label": "Title",
+				"placeHolder": "Enter Lead Title",
+				"initialValues": "",
+				"width": 25,
+				"isDisabled": false,
+				"fieldType": "text",
+				"isHide": false,
+				"isAiEnabled": false,
+				"validation": {
+					"required": false,
+					"min": 0,
+					"max": 250,
+					"pattern": "",
+					"patternErrorMessage": "",
+					"isUnique": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "Select",
+				"id": "ZFe1pu8PlU",
+				"name": "status",
+				"label": "Status",
+				"placeHolder": "Select Deal Status",
+				"multiple": false,
+				"isClearable": true,
+				"isSearchable": true,
+				"isCreatable": false,
+				"notObjectValue": false,
+				"builderIsListOfValue": false,
+				"builderCreateSelectWith": {
+					"label": "Custom Options",
+					"value": "Custom Options"
+				},
+				"builderCollectionMappingLabelOrValue": "label",
+				"valueUsed": [],
+				"options": [
+					{
+						"label": "Generated",
+						"value": "Generated"
+					},
+					{
+						"label": "Pending",
+						"value": "Pending"
+					},
+					{
+						"label": "Partial Paid",
+						"value": "Partial Paid"
+					},
+					{
+						"label": "Paid",
+						"value": "Paid"
+					},
+					{
+						"label": "Cancelled",
+						"value": "Cancelled"
+					}
+				],
+				"width": 25,
+				"isDisabled": false,
+				"isHide": false,
+				"buttonSchema": [],
+				"autoFillValueMapping": [],
+				"validation": {
+					"required": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "Select",
+				"id": "82AmPB6CZm",
+				"name": "currency",
+				"label": "Currency",
+				"placeHolder": "Select Currency",
+				"multiple": false,
+				"isClearable": true,
+				"isSearchable": true,
+				"isCreatable": false,
+				"notObjectValue": false,
+				"builderIsListOfValue": false,
+				"builderCreateSelectWith": {
+					"label": "Collection",
+					"value": "Collection"
+				},
+				"builderCollectionMappingLabelOrValue": "label",
+				"collection": "currency",
+				"select": {
+					"code": 1,
+					"name": 1
+				},
+				"optionMapping": {
+					"label": "name",
+					"value": "_id",
+					"objectName": ""
+				},
+				"valueUsed": [],
+				"options": [
+					{
+						"label": "",
+						"value": ""
+					}
+				],
+				"width": 25,
+				"isDisabled": false,
+				"isHide": false,
+				"buttonSchema": [],
+				"autoFillValueMapping": [],
+				"validation": {
+					"required": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "Input",
+				"id": "1BwfyaKoPB",
+				"name": "invoiceTotal",
+				"label": "Invoice Total",
+				"placeHolder": "Enter Invoice Total",
+				"initialValues": "",
+				"width": 25,
+				"isDisabled": false,
+				"fieldType": "number",
+				"isHide": false,
+				"isAiEnabled": false,
+				"validation": {
+					"required": false,
+					"min": 0,
+					"max": 250,
+					"pattern": "",
+					"patternErrorMessage": "",
+					"isUnique": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "InLineForm",
+				"id": "1glBIq4OJL",
+				"name": "services",
+				"label": "Services",
+				"width": 100,
+				"isDisabled": false,
+				"formFields": [
+					[
+						{
+							"type": "Input",
+							"id": "kjo2e9R9fV",
+							"name": "product",
+							"label": "Product / Services",
+							"placeHolder": "Enter Product / Sevices",
+							"initialValues": "",
+							"width": 25,
+							"isDisabled": false,
+							"fieldType": "text",
+							"isHide": false,
+							"isAiEnabled": false,
+							"validation": {
+								"required": false,
+								"min": 0,
+								"max": 250,
+								"pattern": "",
+								"patternErrorMessage": "",
+								"isUnique": false
+							},
+							"condition": {
+								"isHidden": false
+							}
+						},
+						{
+							"type": "Input",
+							"id": "BFMnXU6cAu",
+							"name": "price",
+							"label": "Est Price",
+							"placeHolder": "Enter Est Price",
+							"initialValues": "",
+							"width": 25,
+							"isDisabled": false,
+							"fieldType": "text",
+							"isHide": false,
+							"isAiEnabled": false,
+							"validation": {
+								"required": false,
+								"min": 0,
+								"max": 250,
+								"pattern": "",
+								"patternErrorMessage": "",
+								"isUnique": false
+							},
+							"condition": {
+								"isHidden": false
+							}
+						},
+						{
+							"type": "Input",
+							"id": "U5gMnqAESF",
+							"name": "qty",
+							"label": "Quantity",
+							"placeHolder": "Enter Quantity",
+							"initialValues": "",
+							"width": 20,
+							"isDisabled": false,
+							"fieldType": "text",
+							"isHide": false,
+							"isAiEnabled": false,
+							"validation": {
+								"required": false,
+								"min": 0,
+								"max": 250,
+								"pattern": "",
+								"patternErrorMessage": "",
+								"isUnique": false
+							},
+							"condition": {
+								"isHidden": false
+							}
+						},
+						{
+							"type": "Input",
+							"id": "TpkwzNON7Z",
+							"name": "timeline",
+							"label": "Duration",
+							"placeHolder": "Enter Expected Time",
+							"initialValues": "",
+							"width": 20,
+							"isDisabled": false,
+							"fieldType": "text",
+							"isHide": false,
+							"isAiEnabled": false,
+							"validation": {
+								"required": false,
+								"min": 0,
+								"max": 250,
+								"pattern": "",
+								"patternErrorMessage": "",
+								"isUnique": false
+							},
+							"condition": {
+								"isHidden": false
+							}
+						},
+						{
+							"type": "DeleteButton",
+							"label": "Delete",
+							"width": 0
+						}
+					]
+				],
+				"notAddable": false,
+				"condition": {}
+			},
+			{
+				"type": "Input",
+				"id": "hqVoOV5e3B",
+				"name": "description",
+				"label": "Description",
+				"placeHolder": "Enter Description",
+				"initialValues": "",
+				"width": 100,
+				"isDisabled": false,
+				"fieldType": "textArea",
+				"isHide": false,
+				"isAiEnabled": false,
+				"validation": {
+					"required": false,
+					"min": 0,
+					"max": 2000,
+					"pattern": "",
+					"patternErrorMessage": "",
+					"isUnique": false
+				},
+				"condition": {
+					"isHidden": false
+				}
+			},
+			{
+				"type": "Upload",
+				"id": "CeQnkiFrOl",
+				"name": "attachment",
+				"label": "Attachment",
+				"width": 25,
+				"isDisabled": false,
+				"isHide": false,
+				"ocrEnabled": false,
+				"ocrFields": [],
+				"assessmentPrompt": "",
+				"validation": {
+					"required": false,
+					"min": 0,
+					"max": 1,
+					"maxSize": 2000000,
+					"allowedTypes": [
+						"image/jpeg",
+						"image/png",
+						"application/pdf"
+					]
+				},
+				"condition": {
+					"isHidden": false
+				}
+			}
+		]
+	]
+}
