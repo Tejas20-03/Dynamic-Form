@@ -1,4 +1,3 @@
-// src/components/DynamicForm.tsx
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
@@ -20,12 +19,20 @@ interface FormField {
     max?: number;
     pattern?: string;
   };
+  multiple?: boolean;
+  isClearable?: boolean;
+  isSearchable?: boolean;
+  isCreatable?: boolean;
+  notObjectValue?: boolean;
+  builderIsListOfValue?: boolean;
+  assessmentPrompt?: string;
   formFields?: FormField[][];
+  [key: string]: any;
 }
 
 interface DynamicFormProps {
   formTitle: string;
-  formFields: Array<FormField[]>;
+  formFields: FormField[][];
 }
 
 const Form: React.FC<DynamicFormProps> = ({ formTitle, formFields }) => {
@@ -50,7 +57,7 @@ const Form: React.FC<DynamicFormProps> = ({ formTitle, formFields }) => {
                 value={field.options?.find((option) => option.value === value)}
                 onChange={(val) => onChange(val?.value)}
                 options={field.options}
-                isClearable={true}
+                isClearable={field.isClearable}
                 isDisabled={field.isDisabled}
                 placeholder={field.placeHolder}
                 className="w-full"
@@ -70,7 +77,7 @@ const Form: React.FC<DynamicFormProps> = ({ formTitle, formFields }) => {
                 onChange={onChange}
                 ref={ref}
                 className="w-full border px-3 border-gray-300 py-2 rounded"
-                placeholderText="DD/MM/YYYY"
+                placeholderText={field.placeHolder}
                 disabled={field.isDisabled}
               />
             )}
@@ -91,6 +98,25 @@ const Form: React.FC<DynamicFormProps> = ({ formTitle, formFields }) => {
                 value={value}
                 type="text"
                 placeholder={field.placeHolder}
+                disabled={field.isDisabled}
+                className="w-full px-3 py-2 border border-gray-300 rounded"
+              />
+            )}
+          />
+        );
+      case "Upload":
+        return (
+          <Controller
+            name={field.name}
+            control={control}
+            rules={{ required: field.validation?.required }}
+            render={({ field: { onChange, onBlur, name, ref } }) => (
+              <input
+                ref={ref}
+                name={name}
+                type="file"
+                onChange={(e) => onChange(e.target.files)}
+                onBlur={onBlur}
                 disabled={field.isDisabled}
                 className="w-full px-3 py-2 border border-gray-300 rounded"
               />
@@ -121,32 +147,13 @@ const Form: React.FC<DynamicFormProps> = ({ formTitle, formFields }) => {
                 <button
                   type="button"
                   className="self-end bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                  onClick={() => console.log("Delete button clicked")} // Handle delete logic
+                  onClick={() => console.log("Delete button clicked")}
                 >
                   Delete
                 </button>
               </div>
             ))}
           </div>
-        );
-      case "Upload":
-        return (
-          <Controller
-            name={field.name}
-            control={control}
-            rules={{ required: field.validation?.required }}
-            render={({ field: { onChange, onBlur, name, ref } }) => (
-              <input
-                ref={ref}
-                name={name}
-                type="file"
-                onChange={(e) => onChange(e.target.files)}
-                onBlur={onBlur}
-                disabled={field.isDisabled}
-                className="w-full px-3 py-2 border border-gray-300 rounded"
-              />
-            )}
-          />
         );
       default:
         return null;
