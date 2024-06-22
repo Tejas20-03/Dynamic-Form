@@ -1,10 +1,10 @@
-import Form from "./components/Form";
+import DynamicForm from "./components/DynamicForm";
 import data from "./data.json";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <Form formTitle={data.formTitle} formFields={data.formFields} />
+    <div className="border p-4 bg-blue-400 shadow-md">
+      <DynamicForm formTitle={data.formTitle} formFields={data.formFields} />
     </div>
   );
 }
